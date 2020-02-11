@@ -3,7 +3,7 @@ const auth = require("../middleware/auth");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   const customers = await Customer.find()
     .select("-__v")
     .sort("name");
